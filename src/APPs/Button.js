@@ -1,5 +1,5 @@
 import ProTypes from "prop-types";
-import styles from "./Button.module.css" // css -> js객체로 변환
+import styles from "../cssModule/Button.module.css" // css -> js객체로 변환
 
 //컴포넌트나 스타일들을 독립적으로 관리할수 있음
 function Button({text}){

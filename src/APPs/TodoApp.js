@@ -14,7 +14,10 @@ function App(){
         setToDos((currentArray) => [toDo, ...currentArray]); //전개연산자
         setToDo("");  
     };
-    console.log(toDos);
+    const onDelete = (index) => {
+        // toDos값이 인자로 받은 index와 toDoIndex가 다를때 필터
+        setToDos((items) => items.filter((_, toDoIndex) => toDoIndex !== index));
+    };
     return(
         <div>
             <h1>My To Dos ({toDos.length})</h1>
@@ -27,6 +30,15 @@ function App(){
             /> 
             <button >Add To Do</button>
             </form>
+            <hr/>
+            <ul>
+                {toDos.map((item, index) => ( // 배열을 가져와서 하나씩 리턴
+                    <li key={index}>
+                        {item}
+                        <button onClick={() => onDelete(index)}>X</button>
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 
